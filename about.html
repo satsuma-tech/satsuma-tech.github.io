@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>団体概要 | 鹿児島大学 SATSUMA TECH</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts 読み込み -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- 独自フォントクラスの定義 -->
+  <style>
+    .font-logo { font-family: 'Orbitron', sans-serif; }
+    .font-en { font-family: 'Rajdhani', 'Noto Sans JP', sans-serif; }
+    .font-jp { font-family: 'Noto Sans JP', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans leading-relaxed">
+
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm font-jp">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-12 w-auto object-contain transition group-hover:scale-105" onerror="this.style.display='none'">
+        <div class="flex flex-col justify-center">
+          <span class="font-logo text-xl font-black tracking-wider text-gray-900 leading-none">SATSUMA TECH</span>
+          <span class="font-en text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-1 uppercase">Kagoshima Univ.</span>
+        </div>
+      </a>
+
+      <!-- デスクトップナビゲーション -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-gray-700 font-jp">
+        <a href="activity.html" class="hover:text-blue-600 transition tracking-wide">活動内容</a>
+        <a href="infomation.html" class="hover:text-blue-600 transition tracking-wide">お知らせ</a>
+        <a href="join.html" class="hover:text-blue-600 transition tracking-wide">入部案内</a>
+        <a href="about.html" class="text-blue-600 font-bold tracking-wide">団体概要</a>
+        <a href="sponsors.html" class="hover:text-blue-600 transition tracking-wide">スポンサー</a>
+        <a href="contact.html" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition shadow-sm font-bold">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ページ見出し -->
+  <section class="bg-slate-900 text-white py-16 px-4 text-center">
+    <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">About Us</span>
+    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">団体概要</h1>
+  </section>
+
+  <!-- 概要テーブル -->
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <div class="bg-white rounded-2xl border shadow-sm p-6 sm:p-8">
+      <dl class="divide-y divide-gray-200 text-sm">
+        <div class="py-4 sm:grid sm:grid-cols-3"><dt class="font-bold text-gray-500">団体名</dt><dd class="text-gray-900 font-semibold sm:col-span-2">SATSUMA TECH（鹿児島大学ロボコンチーム）</dd></div>
+        <div class="py-4 sm:grid sm:grid-cols-3"><dt class="font-bold text-gray-500">設立年</dt><dd class="text-gray-900 sm:col-span-2">20XX年</dd></div>
+        <div class="py-4 sm:grid sm:grid-cols-3"><dt class="font-bold text-gray-500">活動拠点</dt><dd class="text-gray-900 sm:col-span-2">鹿児島大学 郡元キャンパス 部室 / 工作スペース</dd></div>
+        <div class="py-4 sm:grid sm:grid-cols-3"><dt class="font-bold text-gray-500">所属人数</dt><dd class="text-gray-900 sm:col-span-2">約00名</dd></div>
+        <div class="py-4 sm:grid sm:grid-cols-3"><dt class="font-bold text-gray-500">主な活動目的</dt><dd class="text-gray-900 sm:col-span-2">NHK学生ロボコン等の各種競技会出場を通じた技術研鑽とチーム開発の実践</dd></div>
+      </dl>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="bg-[#242424] text-gray-200 py-12 px-6 font-sans text-center border-t border-gray-800">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <div class="flex items-center justify-center gap-3">
+        <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
+        <div class="flex flex-col justify-center text-left">
+          <span class="font-logo text-xl font-black tracking-wider text-white leading-none">SATSUMA TECH</span>
+          <span class="font-en text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-1 uppercase">Kagoshima Univ.</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-center gap-4 pt-1">
+        <!-- X (旧Twitter) -->
+        <a href="https://x.com/kadai_robo" target="_blank" rel="noopener noreferrer" 
+          class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow"
+          aria-label="X (旧Twitter)">
+          <svg class="w-5 h-5 fill-current stroke-current stroke-[35]" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/kadai__robo/" target="_blank" rel="noopener noreferrer" 
+           class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow"
+           aria-label="Instagram">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441 1.44-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+      <p class="text-xs text-gray-400 flex items-center justify-center gap-1.5 pt-1">
+        <svg class="w-3.5 h-3.5 inline-block stroke-current flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        <span>SNSボタンを選択した場合、別のタブが開き、外部サイトへ遷移します。</span>
+      </p>
+      <div class="text-xs text-gray-400 pt-6 border-t border-gray-700/60 font-en">
+        Copyright &copy; 2026 SATSUMA TECH・Kagoshima University All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
