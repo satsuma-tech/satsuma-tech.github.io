@@ -304,63 +304,89 @@
 
     <div class="divide-y divide-gray-100">
       <!-- 記事 1: 大会結果 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-        <div class="flex items-center gap-3">
-          <time class="text-xs text-gray-400 font-mono">2026.06.15</time>
-          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700">大会結果</span>
-          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">NHK学生ロボコン2026にて特別賞を受賞しました</a>
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <!-- 日付 & タグ（スマホでも横並び・文字縮み防止） -->
+          <div class="flex items-center gap-3 shrink-0">
+            <time class="text-xs text-gray-400 font-mono">2026.06.15</time>
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700 whitespace-nowrap shrink-0">大会結果</span>
+          </div>
+          <!-- 記事タイトル -->
+          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+            NHK学生ロボコン2026にて特別賞を受賞しました
+          </a>
         </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
+        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </article>
 
       <!-- 記事 2: 新歓 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-        <div class="flex items-center gap-3">
-          <time class="text-xs text-gray-400 font-mono">2026.04.05</time>
-          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-700">新歓</span>
-          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">2026年度 新歓説明会・部室見学ツアーの日程を公開しました</a>
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <div class="flex items-center gap-3 shrink-0">
+            <time class="text-xs text-gray-400 font-mono">2026.04.05</time>
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-700 whitespace-nowrap shrink-0">新歓</span>
+          </div>
+          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+            2026年度 新歓説明会・部室見学ツアーの日程を公開しました
+          </a>
         </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
+        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </article>
 
-      <!-- 記事 3: チーム・活動報告 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-        <div class="flex items-center gap-3">
-          <time class="text-xs text-gray-400 font-mono">2026.03.20</time>
-          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-indigo-100 text-indigo-700">活動報告</span>
-          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">NHK学生ロボコン2026の出場内定（書類・第1次ビデオ審査通過）</a>
+      <!-- 記事 3: 活動報告 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <div class="flex items-center gap-3 shrink-0">
+            <time class="text-xs text-gray-400 font-mono">2026.03.20</time>
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-indigo-100 text-indigo-700 whitespace-nowrap shrink-0">活動報告</span>
+          </div>
+          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+            NHK学生ロボコン2026の出場内定（書類・第1次ビデオ審査通過）
+          </a>
         </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
+        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </article>
 
-      <!-- 記事 4: スポンサー・支援 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-        <div class="flex items-center gap-3">
-          <time class="text-xs text-gray-400 font-mono">2026.02.10</time>
-          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">スポンサー</span>
-          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">新規スポンサー企業様のご支援が決定いたしました</a>
+      <!-- 記事 4: スポンサー -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <div class="flex items-center gap-3 shrink-0">
+            <time class="text-xs text-gray-400 font-mono">2026.02.10</time>
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800 whitespace-nowrap shrink-0">スポンサー</span>
+          </div>
+          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+            新規スポンサー企業様のご支援が決定いたしました
+          </a>
         </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
+        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </article>
 
-      <!-- 記事 5: イベント・地域交流 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-        <div class="flex items-center gap-3">
-          <time class="text-xs text-gray-400 font-mono">2025.11.18</time>
-          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-rose-100 text-rose-700">イベント</span>
-          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">鹿児島大学祭にてロボット操縦体験・デモ展示を実施しました</a>
+      <!-- 記事 5: イベント -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <div class="flex items-center gap-3 shrink-0">
+            <time class="text-xs text-gray-400 font-mono">2025.11.18</time>
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-rose-100 text-rose-700 whitespace-nowrap shrink-0">イベント</span>
+          </div>
+          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+            鹿児島大学祭にてロボット操縦体験・デモ展示を実施しました
+          </a>
         </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
+        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </article>
 
-      <!-- 記事 6: 新人戦・大会出場 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-        <div class="flex items-center gap-3">
-          <time class="text-xs text-gray-400 font-mono">2025.09.05</time>
-          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-700">新人戦</span>
-          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">夏ロボコン（新人交流大会）にて1年生チームが決勝トーナメント進出</a>
+      <!-- 記事 6: 新人戦 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <div class="flex items-center gap-3 shrink-0">
+            <time class="text-xs text-gray-400 font-mono">2025.09.05</time>
+            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-700 whitespace-nowrap shrink-0">新人戦</span>
+          </div>
+          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+            夏ロボコン（新人交流大会）にて1年生チームが決勝トーナメント進出
+          </a>
         </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
+        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </article>
     </div>
   </section>
