@@ -23,24 +23,30 @@
     .font-en { font-family: 'Rajdhani', 'Noto Sans JP', sans-serif; }
     .font-jp { font-family: 'Noto Sans JP', sans-serif; }
 
-    /* Swiper ページネーション（丸と棒のスタイル） */
-    .activity-pagination .swiper-pagination-bullet {
-      width: 8px;
-      height: 8px;
-      background-color: #94a3b8; /* 通常時の丸の色（slate-400） */
-      opacity: 0.5;
-      border-radius: 9999px;
-      transition: all 0.3s ease;
-      margin: 0 4px !important;
+    /* Swiper ページネーション（丸と棒のスタイル：バグ防止版） */
+    .activity-pagination {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
     }
 
-    /* 選択されているスライド（横長の棒・カプセル型に変形） */
+    .activity-pagination .swiper-pagination-bullet {
+      width: 8px !important;
+      height: 8px !important;
+      background-color: #cbd5e1 !important; /* slate-300 */
+      opacity: 1 !important;
+      border-radius: 9999px !important;
+      transition: all 0.3s ease !important;
+      margin: 0 !important;
+    }
+
+    /* 選択されているスライド（アクティブな1つだけを青いカプセル棒に変形） */
     .activity-pagination .swiper-pagination-bullet-active {
-      width: 28px;               /* 棒の長さ */
-      height: 8px;
-      background-color: #2563eb; /* 選択時の色（Tailwindのblue-600） */
-      opacity: 1;
-      border-radius: 9999px;
+      width: 24px !important;
+      height: 8px !important;
+      background-color: #2563eb !important; /* blue-600 */
+      border-radius: 9999px !important;
     }
   </style>
 </head>
@@ -151,213 +157,213 @@
     </p>
   </section>
 
-<!-- 主要な活動内容 (Activities Slider) -->
-<section class="py-16 bg-slate-50 border-y border-gray-200 overflow-hidden font-jp">
-  <div class="max-w-6xl mx-auto px-4">
-    
-    <!-- セクション見出し & 左右ナビゲーションボタン -->
-    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-8 gap-4">
-      <div class="text-center sm:text-left">
-        <span class="text-blue-600 font-bold text-xs tracking-widest uppercase font-en">Activities</span>
-        <h2 class="text-3xl font-extrabold text-gray-900 mt-1">主な挑戦</h2>
+  <!-- 主要な活動内容 (Activities Slider) -->
+  <section class="py-16 bg-slate-50 border-y border-gray-200 overflow-hidden font-jp">
+    <div class="max-w-6xl mx-auto px-4">
+      
+      <!-- セクション見出し & 左右ナビゲーションボタン -->
+      <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-8 gap-4">
+        <div class="text-center sm:text-left">
+          <span class="text-blue-600 font-bold text-xs tracking-widest uppercase font-en">Activities</span>
+          <h2 class="text-3xl font-extrabold text-gray-900 mt-1">主な挑戦</h2>
+        </div>
+
+        <!-- 左右のスライド操作矢印ボタン -->
+        <div class="flex items-center gap-2">
+          <button class="activity-prev w-10 h-10 rounded-full border border-gray-300 bg-white text-gray-700 flex items-center justify-center hover:bg-blue-50 hover:border-blue-600 hover:text-blue-600 transition shadow-sm" aria-label="前へ">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button class="activity-next w-10 h-10 rounded-full border border-gray-300 bg-white text-gray-700 flex items-center justify-center hover:bg-blue-50 hover:border-blue-600 hover:text-blue-600 transition shadow-sm" aria-label="次へ">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
       </div>
 
-      <!-- 左右のスライド操作矢印ボタン -->
-      <div class="flex items-center gap-2">
-        <button class="activity-prev w-10 h-10 rounded-full border border-gray-300 bg-white text-gray-700 flex items-center justify-center hover:bg-blue-50 hover:border-blue-600 hover:text-blue-600 transition shadow-sm" aria-label="前へ">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-        </button>
-        <button class="activity-next w-10 h-10 rounded-full border border-gray-300 bg-white text-gray-700 flex items-center justify-center hover:bg-blue-50 hover:border-blue-600 hover:text-blue-600 transition shadow-sm" aria-label="次へ">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </button>
+      <!-- Swiper スライダー本体 -->
+      <div class="swiper activitySwiper pt-6 pb-12 px-3 !overflow-visible">
+        <div class="swiper-wrapper">
+
+          <!-- カード1: NHK学生ロボコン (6月) -->
+          <div class="swiper-slide h-auto">
+            <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
+              <div class="absolute -top-4 -right-2 bg-blue-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
+                6月
+              </div>
+
+              <div>
+                <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold">年間プロジェクト</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">NHK学生ロボコン</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  SATSUMA TECHが年間を通して挑戦するプロジェクトです。学部3年を主体として、チーム全体で優勝を目指して挑みます。
+                </p>
+              </div>
+              <div class="pt-6">
+                <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- カード2: 九州夏ロボコン (8月) -->
+          <div class="swiper-slide h-auto">
+            <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
+              <div class="absolute -top-4 -right-2 bg-red-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
+                8月
+              </div>
+
+              <div>
+                <span class="px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold">新人プロジェクト</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">九州夏ロボコン</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  新入生が初めて挑戦する大会です。主にB1・B2が主体となりロボット製作の基本を学びながら、大会に挑みます。
+                </p>
+              </div>
+              <div class="pt-6">
+                <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- カード3: キャチロボ (9月) -->
+          <div class="swiper-slide h-auto">
+            <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
+              <div class="absolute -top-4 -right-2 bg-emerald-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
+                9月
+              </div>
+
+              <div>
+                <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">育成プロジェクト</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">キャチロボバトルコンテスト</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  2026年より挑戦を始めた大会です。マテリアルハンドという他のロボコンとは違った競技に挑みながら、技術を磨きます。
+                </p>
+              </div>
+              <div class="pt-6">
+                <a href="robots.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- カード4: 鹿大祭 (11月) -->
+          <div class="swiper-slide h-auto">
+            <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
+              <div class="absolute -top-4 -right-2 bg-amber-500 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
+                11月
+              </div>
+
+              <div>
+                <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold">学校行事</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">鹿大祭</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  11月に開催される大学のイベントです。過去製作した機体やミニロボを展示して、地域の子供たちにものづくりの楽しさを伝えています。
+                </p>
+              </div>
+              <div class="pt-6">
+                <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- カード5: 他大学・高専との交流 (通年) -->
+          <div class="swiper-slide h-auto">
+            <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
+              <div class="absolute -top-4 -right-2 bg-rose-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
+                通年
+              </div>
+
+              <div>
+                <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold">交流イベント</span>
+                <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">他大学・高専との交流</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  他の大学や高専のロボコンチームと交流を行っています。交流をしていただける団体様を随時募集しています。
+                </p>
+              </div>
+              <div class="pt-6">
+                <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 下部の丸と棒のインジケーター -->
+        <div class="swiper-pagination activity-pagination flex justify-center items-center !bottom-0"></div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- 最新のお知らせ (News: 6件常時表示) -->
+  <section class="py-20 max-w-4xl mx-auto px-4 font-jp">
+    <div class="flex justify-between items-end mb-8 border-b pb-4">
+      <div>
+        <span class="text-blue-600 font-bold text-xs tracking-widest uppercase font-en">News</span>
+        <h2 class="text-2xl font-extrabold text-gray-900 mt-1">最新のお知らせ</h2>
+      </div>
+      <a href="infomation.html" class="text-blue-600 font-bold text-sm hover:underline">お知らせ一覧 &rarr;</a>
     </div>
 
-    <!-- Swiper スライダー本体（!overflow-visible と px-3 を追加してバッジ欠けを防止） -->
-    <div class="swiper activitySwiper pt-6 pb-12 px-3 !overflow-visible">
-      <div class="swiper-wrapper">
-
-        <!-- カード1: NHK学生ロボコン (6月) -->
-        <div class="swiper-slide h-auto">
-          <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
-            <div class="absolute -top-4 -right-2 bg-blue-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
-              6月
-            </div>
-
-            <div>
-              <span class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold">年間プロジェクト</span>
-              <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">NHK学生ロボコン</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                SATSUMA TECHが年間を通して挑戦するプロジェクトです。学部3年を主体として、チーム全体で優勝を目指して挑みます。
-              </p>
-            </div>
-            <div class="pt-6">
-              <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
-            </div>
-          </div>
+    <div class="divide-y divide-gray-100">
+      <!-- 記事 1: 大会結果 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
+        <div class="flex items-center gap-3">
+          <time class="text-xs text-gray-400 font-mono">2026.06.15</time>
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700">大会結果</span>
+          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">NHK学生ロボコン2026にて特別賞を受賞しました</a>
         </div>
+        <span class="text-xs text-gray-400">&rarr;</span>
+      </article>
 
-        <!-- カード2: 九州夏ロボコン (8月) -->
-        <div class="swiper-slide h-auto">
-          <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
-            <div class="absolute -top-4 -right-2 bg-red-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
-              8月
-            </div>
-
-            <div>
-              <span class="px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold">新人プロジェクト</span>
-              <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">九州夏ロボコン</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                新入生が初めて挑戦する大会です。主にB1・B2が主体となりロボット製作の基本を学びながら、大会に挑みます。
-              </p>
-            </div>
-            <div class="pt-6">
-              <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
-            </div>
-          </div>
+      <!-- 記事 2: 新歓 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
+        <div class="flex items-center gap-3">
+          <time class="text-xs text-gray-400 font-mono">2026.04.05</time>
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-700">新歓</span>
+          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">2026年度 新歓説明会・部室見学ツアーの日程を公開しました</a>
         </div>
+        <span class="text-xs text-gray-400">&rarr;</span>
+      </article>
 
-        <!-- カード3: キャチロボ (9月) -->
-        <div class="swiper-slide h-auto">
-          <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
-            <div class="absolute -top-4 -right-2 bg-emerald-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
-              9月
-            </div>
-
-            <div>
-              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">育成プロジェクト</span>
-              <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">キャチロボバトルコンテスト</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                2026年より挑戦を始めた大会です。マテリアルハンドという他のロボコンとは違った競技に挑みながら、技術を磨きます。
-              </p>
-            </div>
-            <div class="pt-6">
-              <a href="robots.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
-            </div>
-          </div>
+      <!-- 記事 3: チーム・活動報告 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
+        <div class="flex items-center gap-3">
+          <time class="text-xs text-gray-400 font-mono">2026.03.20</time>
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-indigo-100 text-indigo-700">活動報告</span>
+          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">NHK学生ロボコン2026の出場内定（書類・第1次ビデオ審査通過）</a>
         </div>
+        <span class="text-xs text-gray-400">&rarr;</span>
+      </article>
 
-        <!-- カード4: 鹿大祭 (11月) -->
-        <div class="swiper-slide h-auto">
-          <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
-            <div class="absolute -top-4 -right-2 bg-amber-500 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
-              11月
-            </div>
-
-            <div>
-              <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold">学校行事</span>
-              <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">鹿大祭</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                11月に開催される大学のイベントです。過去製作した機体やミニロボを展示して、地域の子供たちにものづくりの楽しさを伝えています。
-              </p>
-            </div>
-            <div class="pt-6">
-              <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
-            </div>
-          </div>
+      <!-- 記事 4: スポンサー・支援 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
+        <div class="flex items-center gap-3">
+          <time class="text-xs text-gray-400 font-mono">2026.02.10</time>
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">スポンサー</span>
+          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">新規スポンサー企業様のご支援が決定いたしました</a>
         </div>
+        <span class="text-xs text-gray-400">&rarr;</span>
+      </article>
 
-        <!-- カード5: 他大学・高専との交流 (通年) -->
-        <div class="swiper-slide h-auto">
-          <div class="relative bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition h-full flex flex-col justify-between">
-            <div class="absolute -top-4 -right-2 bg-rose-600 text-white font-jp text-sm font-black px-4 py-1 rounded-full shadow-lg tracking-wider">
-              通年
-            </div>
-
-            <div>
-              <span class="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold">交流イベント</span>
-              <h3 class="text-xl font-bold text-gray-900 mt-4 mb-2">他大学・高専との交流</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                他の大学や高専のロボコンチームと交流を行っています。交流をしていただける団体様を随時募集しています。
-              </p>
-            </div>
-            <div class="pt-6">
-              <a href="activity.html" class="text-blue-600 font-bold text-sm hover:underline">詳しく見る &rarr;</a>
-            </div>
-          </div>
+      <!-- 記事 5: イベント・地域交流 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
+        <div class="flex items-center gap-3">
+          <time class="text-xs text-gray-400 font-mono">2025.11.18</time>
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-rose-100 text-rose-700">イベント</span>
+          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">鹿児島大学祭にてロボット操縦体験・デモ展示を実施しました</a>
         </div>
+        <span class="text-xs text-gray-400">&rarr;</span>
+      </article>
 
-      </div>
-
-      <!-- 下部の丸と棒のインジケーター -->
-      <div class="swiper-pagination activity-pagination flex justify-center items-center !bottom-0"></div>
+      <!-- 記事 6: 新人戦・大会出場 -->
+      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
+        <div class="flex items-center gap-3">
+          <time class="text-xs text-gray-400 font-mono">2025.09.05</time>
+          <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-700">新人戦</span>
+          <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">夏ロボコン（新人交流大会）にて1年生チームが決勝トーナメント進出</a>
+        </div>
+        <span class="text-xs text-gray-400">&rarr;</span>
+      </article>
     </div>
-
-  </div>
-</section>
-
-<!-- 最新のお知らせ (News: 6件常時表示) -->
-<section class="py-20 max-w-4xl mx-auto px-4 font-jp">
-  <div class="flex justify-between items-end mb-8 border-b pb-4">
-    <div>
-      <span class="text-blue-600 font-bold text-xs tracking-widest uppercase font-en">News</span>
-      <h2 class="text-2xl font-extrabold text-gray-900 mt-1">最新のお知らせ</h2>
-    </div>
-    <a href="infomation.html" class="text-blue-600 font-bold text-sm hover:underline">お知らせ一覧 &rarr;</a>
-  </div>
-
-  <div class="divide-y divide-gray-100">
-    <!-- 記事 1: 大会結果 -->
-    <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-      <div class="flex items-center gap-3">
-        <time class="text-xs text-gray-400 font-mono">2026.06.15</time>
-        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700">大会結果</span>
-        <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">NHK学生ロボコン2026にて特別賞を受賞しました</a>
-      </div>
-      <span class="text-xs text-gray-400">&rarr;</span>
-    </article>
-
-    <!-- 記事 2: 新歓 -->
-    <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-      <div class="flex items-center gap-3">
-        <time class="text-xs text-gray-400 font-mono">2026.04.05</time>
-        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-700">新歓</span>
-        <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">2026年度 新歓説明会・部室見学ツアーの日程を公開しました</a>
-      </div>
-      <span class="text-xs text-gray-400">&rarr;</span>
-    </article>
-
-    <!-- 記事 3: チーム・活動報告 -->
-    <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-      <div class="flex items-center gap-3">
-        <time class="text-xs text-gray-400 font-mono">2026.03.20</time>
-        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-indigo-100 text-indigo-700">活動報告</span>
-        <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">NHK学生ロボコン2026の出場内定（書類・第1次ビデオ審査通過）</a>
-      </div>
-      <span class="text-xs text-gray-400">&rarr;</span>
-    </article>
-
-    <!-- 記事 4: スポンサー・支援 -->
-    <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-      <div class="flex items-center gap-3">
-        <time class="text-xs text-gray-400 font-mono">2026.02.10</time>
-        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800">スポンサー</span>
-        <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">新規スポンサー企業様のご支援が決定いたしました</a>
-      </div>
-      <span class="text-xs text-gray-400">&rarr;</span>
-    </article>
-
-    <!-- 記事 5: イベント・地域交流 -->
-    <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-      <div class="flex items-center gap-3">
-        <time class="text-xs text-gray-400 font-mono">2025.11.18</time>
-        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-rose-100 text-rose-700">イベント</span>
-        <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">鹿児島大学祭にてロボット操縦体験・デモ展示を実施しました</a>
-      </div>
-      <span class="text-xs text-gray-400">&rarr;</span>
-    </article>
-
-    <!-- 記事 6: 新人戦・大会出場 -->
-    <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 px-2 rounded-lg transition">
-      <div class="flex items-center gap-3">
-        <time class="text-xs text-gray-400 font-mono">2025.09.05</time>
-        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-700">新人戦</span>
-        <a href="infomation.html" class="font-semibold text-gray-800 hover:text-blue-600 transition">夏ロボコン（新人交流大会）にて1年生チームが決勝トーナメント進出</a>
-      </div>
-      <span class="text-xs text-gray-400">&rarr;</span>
-    </article>
-  </div>
-</section>
+  </section>
 
   <!-- 新入生募集バナー (Join Us Banner) -->
   <section class="py-16 bg-blue-600 text-white font-jp">
@@ -463,10 +469,12 @@
       },
     });
 
-    // 3. 活動内容カードスライダー（丸・棒インジケーター連携）
+    // 3. 活動内容カードスライダー（バグ修正版）
     const activitySwiper = new Swiper('.activitySwiper', {
       slidesPerView: 1.15,
       spaceBetween: 16,
+      watchSlidesProgress: true,
+      resistanceRatio: 0,
       navigation: {
         nextEl: '.activity-next',
         prevEl: '.activity-prev',
