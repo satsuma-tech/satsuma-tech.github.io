@@ -292,7 +292,7 @@
     </div>
   </section>
 
-  <!-- 最新のお知らせ (News: 6件常時表示) -->
+  <!-- 最新のお知らせ (News: microCMS動的連携) -->
   <section class="py-20 max-w-4xl mx-auto px-4 font-jp">
     <div class="flex justify-between items-end mb-8 border-b pb-4">
       <div>
@@ -302,92 +302,11 @@
       <a href="infomation.html" class="text-blue-600 font-bold text-sm hover:underline">お知らせ一覧 &rarr;</a>
     </div>
 
-    <div class="divide-y divide-gray-100">
-      <!-- 記事 1: 大会結果 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-          <!-- 日付 & タグ（スマホでも横並び・文字縮み防止） -->
-          <div class="flex items-center gap-3 shrink-0">
-            <time class="text-xs text-gray-400 font-mono">2026.06.15</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700 whitespace-nowrap shrink-0">大会結果</span>
-          </div>
-          <!-- 記事タイトル -->
-          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
-            NHK学生ロボコン2026にて特別賞を受賞しました
-          </a>
-        </div>
-        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </article>
-
-      <!-- 記事 2: 新歓 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-          <div class="flex items-center gap-3 shrink-0">
-            <time class="text-xs text-gray-400 font-mono">2026.04.05</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-700 whitespace-nowrap shrink-0">新歓</span>
-          </div>
-          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
-            2026年度 新歓説明会・部室見学ツアーの日程を公開しました
-          </a>
-        </div>
-        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </article>
-
-      <!-- 記事 3: 活動報告 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-          <div class="flex items-center gap-3 shrink-0">
-            <time class="text-xs text-gray-400 font-mono">2026.03.20</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-indigo-100 text-indigo-700 whitespace-nowrap shrink-0">活動報告</span>
-          </div>
-          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
-            NHK学生ロボコン2026の出場内定（書類・第1次ビデオ審査通過）
-          </a>
-        </div>
-        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </article>
-
-      <!-- 記事 4: スポンサー -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-          <div class="flex items-center gap-3 shrink-0">
-            <time class="text-xs text-gray-400 font-mono">2026.02.10</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-800 whitespace-nowrap shrink-0">スポンサー</span>
-          </div>
-          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
-            新規スポンサー企業様のご支援が決定いたしました
-          </a>
-        </div>
-        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </article>
-
-      <!-- 記事 5: イベント -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-          <div class="flex items-center gap-3 shrink-0">
-            <time class="text-xs text-gray-400 font-mono">2025.11.18</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-rose-100 text-rose-700 whitespace-nowrap shrink-0">イベント</span>
-          </div>
-          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
-            鹿児島大学祭にてロボット操縦体験・デモ展示を実施しました
-          </a>
-        </div>
-        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </article>
-
-      <!-- 記事 6: 新人戦 -->
-      <article class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-          <div class="flex items-center gap-3 shrink-0">
-            <time class="text-xs text-gray-400 font-mono">2025.09.05</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-purple-100 text-purple-700 whitespace-nowrap shrink-0">新人戦</span>
-          </div>
-          <a href="infomation.html" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
-            夏ロボコン（新人交流大会）にて1年生チームが決勝トーナメント進出
-          </a>
-        </div>
-        <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
-      </article>
+    <!-- microCMSから取得した記事がここに自動挿入されます -->
+    <div id="news-container" class="divide-y divide-gray-100">
+      <div class="py-8 text-center text-gray-400 text-sm animate-pulse">
+        お知らせを読み込み中...
+      </div>
     </div>
   </section>
 
@@ -520,6 +439,76 @@
         },
       },
     });
+
+    // 4. microCMSから最新のお知らせを取得して描画
+    // ▼▼▼ あなたのmicroCMSの「サービスID」と「APIキー」に書き換えてください ▼▼▼
+    const MICROCMS_SERVICE_ID = 'satsuma-tech'; 
+    const MICROCMS_API_KEY = 'JE8dJSC5qjh96Dm6KccOzvIq61q9fcBx3ZmA';       
+    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
+    const categoryStyles = {
+      '大会結果': 'bg-blue-100 text-blue-700',
+      '新歓': 'bg-emerald-100 text-emerald-700',
+      '活動報告': 'bg-indigo-100 text-indigo-700',
+      'スポンサー': 'bg-amber-100 text-amber-800',
+      'イベント': 'bg-rose-100 text-rose-700',
+      '新人戦': 'bg-purple-100 text-purple-700'
+    };
+
+    async function fetchLatestNews() {
+      const container = document.getElementById('news-container');
+      try {
+        const res = await fetch(`https://${MICROCMS_SERVICE_ID}.microcms.io/api/v1/news?limit=6`, {
+          headers: {
+            'X-MICROCMS-API-KEY': MICROCMS_API_KEY
+          }
+        });
+
+        if (!res.ok) throw new Error('データ取得に失敗しました');
+
+        const data = await res.json();
+        container.innerHTML = '';
+
+        if (!data.contents || data.contents.length === 0) {
+          container.innerHTML = '<p class="text-gray-400 text-sm py-6 text-center">現在、お知らせはありません。</p>';
+          return;
+        }
+
+        data.contents.forEach(item => {
+          // 日付のフォーマット (YYYY.MM.DD)
+          const targetDate = item.publishedDate || item.publishedAt;
+          const d = new Date(targetDate);
+          const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+          
+          // カテゴリバッジの装飾
+          const badgeClass = categoryStyles[item.category] || 'bg-gray-100 text-gray-700';
+
+          const article = document.createElement('article');
+          article.className = 'py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-2 rounded-lg transition group';
+          article.innerHTML = `
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <!-- 日付 & タグ（スマホでも縮まない・横並び） -->
+              <div class="flex items-center gap-3 shrink-0">
+                <time class="text-xs text-gray-400 font-mono">${dateStr}</time>
+                <span class="px-2.5 py-0.5 rounded text-xs font-bold ${badgeClass} whitespace-nowrap shrink-0">${item.category || 'お知らせ'}</span>
+              </div>
+              <!-- 記事タイトル -->
+              <a href="infomation.html?id=${item.id}" class="font-semibold text-gray-800 group-hover:text-blue-600 transition leading-snug">
+                ${item.title}
+              </a>
+            </div>
+            <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          `;
+          container.appendChild(article);
+        });
+
+      } catch (err) {
+        console.error('microCMS Fetch Error:', err);
+        container.innerHTML = '<p class="text-gray-400 text-sm py-6 text-center">お知らせの取得に失敗しました。</p>';
+      }
+    }
+
+    fetchLatestNews();
   </script>
 </body>
-</html>
+</html>s
