@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お知らせ | 鹿児島大学 SATSUMA TECH</title>
+  <link rel="shortcut icon" href="./images/favicon.jpg?v=20260825">
+  <link rel="icon" type="image/jpeg" href="./images/favicon.jpg?v=20260825">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,27 +14,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- 独自フォントクラスの定義 -->
+  <!-- 独自フォントクラス & リッチエディタ装飾定義 -->
   <style>
     .font-logo { font-family: 'Orbitron', sans-serif; }
     .font-en { font-family: 'Rajdhani', 'Noto Sans JP', sans-serif; }
     .font-jp { font-family: 'Noto Sans JP', sans-serif; }
+
+    /* microCMSリッチエディタ用本文スタイル */
+    .article-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.25rem; color: #0f172a; }
+    .article-content h3 { font-size: 1.1rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #1e293b; }
+    .article-content p { margin-bottom: 1rem; line-height: 1.8; color: #334155; }
+    .article-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.25rem 0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+    .article-content a { color: #2563eb; text-decoration: underline; word-break: break-all; }
+    .article-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+    .article-content ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans leading-relaxed">
+<body class="bg-white text-gray-800 font-sans leading-relaxed flex flex-col min-h-screen">
 
   <!-- ヘッダー -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm font-jp">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm font-jp">
     <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-12 w-auto object-contain transition group-hover:scale-105" onerror="this.style.display='none'">
+      
+      <!-- ロゴ部分 -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'">
         <div class="flex flex-col justify-center">
-          <span class="font-logo text-xl font-black tracking-wider text-gray-900 leading-none">SATSUMA TECH</span>
-          <span class="font-en text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-1 uppercase">Kagoshima Univ.</span>
+          <span class="font-logo text-lg sm:text-xl font-black tracking-wider text-gray-900 leading-none">SATSUMA TECH</span>
+          <span class="font-en text-[10px] sm:text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-0.5 sm:mt-1 uppercase">Kagoshima Univ.</span>
         </div>
       </a>
 
-      <!-- デスクトップナビゲーション -->
+      <!-- PC用ナビゲーション（md以上で表示） -->
       <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-gray-700 font-jp">
         <a href="activity.html" class="hover:text-blue-600 transition tracking-wide">活動内容</a>
         <a href="infomation.html" class="text-blue-600 font-bold tracking-wide">お知らせ</a>
@@ -41,49 +54,85 @@
         <a href="sponsors.html" class="hover:text-blue-600 transition tracking-wide">スポンサー</a>
         <a href="contact.html" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition shadow-sm font-bold">お問い合わせ</a>
       </nav>
+
+      <!-- スマホ用ハンバーガーボタン（md未満でのみ表示） -->
+      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="メニューを開閉">
+        <!-- 三本線アイコン (開く用) -->
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <!-- バツアイコン (閉じる用・初期は非表示) -->
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+      <a href="activity.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">活動内容</a>
+      <a href="infomation.html" class="block py-2.5 px-3 rounded-lg font-bold text-blue-600 bg-blue-50">お知らせ</a>
+      <a href="join.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">入部案内</a>
+      <a href="about.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">団体概要</a>
+      <a href="sponsors.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">スポンサー</a>
+      <a href="contact.html" class="block py-2.5 px-3 text-center rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow">お問い合わせ</a>
     </div>
   </header>
 
   <!-- ページ見出し -->
-  <section class="bg-slate-900 text-white py-16 px-4 text-center">
-    <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Information</span>
-    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">お知らせ</h1>
+  <section class="bg-slate-900 text-white py-16 px-4 text-center font-jp">
+    <span class="text-blue-400 font-bold text-xs tracking-widest uppercase font-en">Information</span>
+    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">お知らせ一覧</h1>
   </section>
 
-  <!-- お知らせ一覧 -->
-  <main class="max-w-4xl mx-auto px-4 py-16">
-    <div class="divide-y divide-gray-200">
-      <article class="py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-3 mb-2">
-            <time class="text-xs text-gray-400 font-mono">2026.06.15</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-blue-100 text-blue-700">大会結果</span>
-          </div>
-          <h2 class="text-lg font-bold text-gray-900 hover:text-blue-600 transition cursor-pointer">
-            NHK学生ロボコン2026に出場し、特別賞を受賞しました
-          </h2>
-        </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
-      </article>
-
-      <article class="py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-3 mb-2">
-            <time class="text-xs text-gray-400 font-mono">2026.04.01</time>
-            <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-700">新歓</span>
-          </div>
-          <h2 class="text-lg font-bold text-gray-900 hover:text-blue-600 transition cursor-pointer">
-            2026年度 新歓説明会および部室見学ツアーを開催します
-          </h2>
-        </div>
-        <span class="text-xs text-gray-400">&rarr;</span>
-      </article>
+  <!-- お知らせ一覧メインコンテンツ -->
+  <main class="max-w-4xl mx-auto px-4 py-16 flex-grow font-jp w-full">
+    <div id="news-container" class="divide-y divide-gray-200">
+      <!-- 読み込み中アニメーション -->
+      <div class="py-12 text-center text-gray-400 text-sm animate-pulse">
+        お知らせを読み込み中...
+      </div>
     </div>
   </main>
 
+  <!-- 記事詳細表示用モーダル（ポップアップ） -->
+  <div id="article-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden font-jp">
+      
+      <!-- モーダルヘッダー -->
+      <div class="p-6 border-b border-gray-100 flex justify-between items-start gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <time id="modal-date" class="text-xs text-gray-400 font-mono"></time>
+            <span id="modal-category" class="px-2.5 py-0.5 rounded text-xs font-bold whitespace-nowrap"></span>
+          </div>
+          <h2 id="modal-title" class="text-xl md:text-2xl font-bold text-gray-900 leading-snug"></h2>
+        </div>
+        <button id="modal-close-btn" class="text-gray-400 hover:text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition" aria-label="閉じる">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- モーダル本文 -->
+      <div id="modal-content" class="p-6 overflow-y-auto text-gray-700 leading-relaxed article-content flex-grow"></div>
+
+      <!-- モーダルフッター -->
+      <div class="p-4 bg-gray-50 border-t border-gray-100 text-right">
+        <button id="modal-bottom-close-btn" class="px-5 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-bold rounded-lg transition">
+          閉じる
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- フッター -->
-  <footer class="bg-[#242424] text-gray-200 py-12 px-6 font-sans text-center border-t border-gray-800">
+  <footer class="bg-[#242424] text-gray-200 py-12 px-6 font-sans text-center border-t border-gray-800 mt-auto">
     <div class="max-w-4xl mx-auto space-y-6">
+
+      <!-- 1. サークルロゴ & 団体名 -->
       <div class="flex items-center justify-center gap-3">
         <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
         <div class="flex flex-col justify-center text-left">
@@ -91,6 +140,8 @@
           <span class="font-en text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-1 uppercase">Kagoshima Univ.</span>
         </div>
       </div>
+
+      <!-- 2. SNSボタングループ -->
       <div class="flex items-center justify-center gap-4 pt-1">
         <!-- X (旧Twitter) -->
         <a href="https://x.com/kadai_robo" target="_blank" rel="noopener noreferrer" 
@@ -100,21 +151,162 @@
             <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
           </svg>
         </a>
+
+        <!-- Instagram -->
         <a href="https://www.instagram.com/kadai__robo/" target="_blank" rel="noopener noreferrer" 
-           class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow"
-           aria-label="Instagram">
-          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441 1.44-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow"
+          aria-label="Instagram">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441 1.44-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
         </a>
       </div>
-      <p class="text-xs text-gray-400 flex items-center justify-center gap-1.5 pt-1">
-        <svg class="w-3.5 h-3.5 inline-block stroke-current flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+
+      <!-- 3. 外部遷移の注意書き -->
+      <p class="text-xs text-gray-400 flex items-center justify-center gap-1.5 pt-1 font-jp">
+        <svg class="w-3.5 h-3.5 inline-block stroke-current flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
         <span>SNSボタンを選択した場合、別のタブが開き、外部サイトへ遷移します。</span>
       </p>
+
+      <!-- 4. コピーライト -->
       <div class="text-xs text-gray-400 pt-6 border-t border-gray-700/60 font-en">
         Copyright &copy; 2026 SATSUMA TECH・Kagoshima University All Rights Reserved.
       </div>
+
     </div>
   </footer>
 
+  <!-- スクリプト -->
+  <script>
+    // 1. スマホメニュー開閉
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    // 2. microCMS 設定
+    // ▼▼▼ index.html と同じサービスID・APIキーを入力してください ▼▼▼
+    const MICROCMS_SERVICE_ID = 'satsuma-tech'; 
+    const MICROCMS_API_KEY = 'JE8dJSC5qjh96Dm6KccOzvIq61q9fcBx3ZmA';       
+    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
+    const categoryStyles = {
+      '大会結果': 'bg-blue-100 text-blue-700',
+      '新歓': 'bg-emerald-100 text-emerald-700',
+      '活動報告': 'bg-indigo-100 text-indigo-700',
+      'スポンサー': 'bg-amber-100 text-amber-800',
+      'イベント': 'bg-rose-100 text-rose-700',
+      '新人戦': 'bg-purple-100 text-purple-700'
+    };
+
+    let allNewsItems = [];
+
+    // 3. microCMSから全お知らせ一覧を取得
+    async function fetchAllNews() {
+      const container = document.getElementById('news-container');
+      try {
+        const res = await fetch(`https://${MICROCMS_SERVICE_ID}.microcms.io/api/v1/news?limit=100`, {
+          headers: {
+            'X-MICROCMS-API-KEY': MICROCMS_API_KEY
+          }
+        });
+
+        if (!res.ok) throw new Error('お知らせの取得に失敗しました');
+
+        const data = await res.json();
+        allNewsItems = data.contents || [];
+        container.innerHTML = '';
+
+        if (allNewsItems.length === 0) {
+          container.innerHTML = '<p class="text-gray-400 text-sm py-12 text-center">現在、お知らせはありません。</p>';
+          return;
+        }
+
+        allNewsItems.forEach(item => {
+          const targetDate = item.publishedDate || item.publishedAt;
+          const d = new Date(targetDate);
+          const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+          const badgeClass = categoryStyles[item.category] || 'bg-gray-100 text-gray-700';
+
+          const article = document.createElement('article');
+          article.className = 'py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 hover:bg-slate-50 px-3 rounded-xl transition cursor-pointer group';
+          article.innerHTML = `
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <div class="flex items-center gap-3 shrink-0">
+                <time class="text-xs text-gray-400 font-mono">${dateStr}</time>
+                <span class="px-2.5 py-0.5 rounded text-xs font-bold ${badgeClass} whitespace-nowrap shrink-0">${item.category || 'お知らせ'}</span>
+              </div>
+              <h2 class="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition leading-snug">
+                ${item.title}
+              </h2>
+            </div>
+            <span class="hidden sm:inline-block text-xs text-gray-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          `;
+
+          // クリックで詳細モーダルを表示
+          article.addEventListener('click', () => openArticleModal(item));
+          container.appendChild(article);
+        });
+
+        // URLパラメータ（?id=xxx）がある場合は自動で詳細モーダルを開く
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        if (articleId) {
+          const targetItem = allNewsItems.find(item => item.id === articleId);
+          if (targetItem) {
+            openArticleModal(targetItem);
+          }
+        }
+
+      } catch (err) {
+        console.error('Fetch Error:', err);
+        container.innerHTML = '<p class="text-gray-400 text-sm py-12 text-center">お知らせの読み込みに失敗しました。</p>';
+      }
+    }
+
+    // 4. モーダル（詳細ポップアップ）制御
+    const modal = document.getElementById('article-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalBottomCloseBtn = document.getElementById('modal-bottom-close-btn');
+
+    function openArticleModal(item) {
+      const targetDate = item.publishedDate || item.publishedAt;
+      const d = new Date(targetDate);
+      const dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+      
+      document.getElementById('modal-date').textContent = dateStr;
+      
+      const badge = document.getElementById('modal-category');
+      badge.textContent = item.category || 'お知らせ';
+      badge.className = `px-2.5 py-0.5 rounded text-xs font-bold whitespace-nowrap shrink-0 ${categoryStyles[item.category] || 'bg-gray-100 text-gray-700'}`;
+
+      document.getElementById('modal-title').textContent = item.title;
+      document.getElementById('modal-content').innerHTML = item.content || '<p class="text-gray-400">本文はありません。</p>';
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // 背景スクロール禁止
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = ''; // スクロール解除
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalBottomCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    fetchAllNews();
+  </script>
 </body>
 </html>
