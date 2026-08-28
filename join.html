@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>入部案内 | 鹿児島大学 SATSUMA TECH</title>
+  <link rel="shortcut icon" href="./images/favicon.jpg?v=20260825">
+  <link rel="icon" type="image/jpeg" href="./images/favicon.jpg?v=20260825">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -24,11 +26,11 @@
   <!-- ヘッダー -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm font-jp">
     <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-12 w-auto object-contain transition group-hover:scale-105" onerror="this.style.display='none'">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-10 sm:h-12 w-auto object-contain" onerror="this.style.display='none'">
         <div class="flex flex-col justify-center">
-          <span class="font-logo text-xl font-black tracking-wider text-gray-900 leading-none">SATSUMA TECH</span>
-          <span class="font-en text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-1 uppercase">Kagoshima Univ.</span>
+          <span class="font-logo text-lg sm:text-xl font-black tracking-wider text-gray-900 leading-none">SATSUMA TECH</span>
+          <span class="font-en text-[10px] sm:text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-0.5 sm:mt-1 uppercase">Kagoshima Univ.</span>
         </div>
       </a>
 
@@ -41,6 +43,26 @@
         <a href="sponsors.html" class="hover:text-blue-600 transition tracking-wide">スポンサー</a>
         <a href="contact.html" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition shadow-sm font-bold">お問い合わせ</a>
       </nav>
+
+      <!-- スマホ用ハンバーガーボタン -->
+      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" aria-label="メニューを開閉">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+      <a href="activity.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">活動内容</a>
+      <a href="infomation.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">お知らせ</a>
+      <a href="join.html" class="block py-2.5 px-3 rounded-lg font-bold text-blue-600 bg-blue-50 transition">入部案内</a>
+      <a href="about.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">団体概要</a>
+      <a href="sponsors.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">スポンサー</a>
+      <a href="contact.html" class="block py-2.5 px-3 text-center rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow">お問い合わせ</a>
     </div>
   </header>
 
@@ -99,17 +121,10 @@
         </div>
       </div>
       <div class="flex items-center justify-center gap-4 pt-1">
-        <!-- X (旧Twitter) -->
-        <a href="https://x.com/kadai_robo" target="_blank" rel="noopener noreferrer" 
-          class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow"
-          aria-label="X (旧Twitter)">
-          <svg class="w-5 h-5 fill-current stroke-current stroke-[35]" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
-            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
-          </svg>
+        <a href="https://x.com/kadai_robo" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow" aria-label="X (旧Twitter)">
+          <svg class="w-5 h-5 fill-current stroke-current stroke-[35]" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
         </a>
-        <a href="https://www.instagram.com/kadai__robo/" target="_blank" rel="noopener noreferrer" 
-           class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow"
-           aria-label="Instagram">
+        <a href="https://www.instagram.com/kadai__robo/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow" aria-label="Instagram">
           <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441 1.44-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
       </div>
@@ -122,7 +137,22 @@
       </div>
     </div>
   </footer>
+
   <script>
+    // スマホメニュー開閉機能
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+    }
+
     if (window.location.pathname.endsWith('.html')) {
       const cleanPath = window.location.pathname.replace(/\.html$/, '') + window.location.search;
       window.history.replaceState(null, '', cleanPath);
