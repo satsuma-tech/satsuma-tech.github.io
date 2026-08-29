@@ -21,7 +21,7 @@
     .font-jp { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-sans leading-relaxed">
+<body class="bg-white text-gray-800 font-sans leading-relaxed flex flex-col min-h-screen">
 
   <!-- ヘッダー -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm font-jp">
@@ -40,7 +40,7 @@
         <a href="infomation.html" class="hover:text-blue-600 transition tracking-wide">お知らせ</a>
         <a href="join.html" class="hover:text-blue-600 transition tracking-wide">入部案内</a>
         <a href="about.html" class="hover:text-blue-600 transition tracking-wide">団体概要</a>
-        <a href="sponsors.html" class="text-blue-600 font-bold tracking-wide">スポンサー</a>
+        <a href="sponsors.html" class="text-blue-600 font-bold tracking-wide pointer-events-none">スポンサー</a>
         <a href="contact.html" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition shadow-sm font-bold">お問い合わせ</a>
       </nav>
 
@@ -61,44 +61,250 @@
       <a href="infomation.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">お知らせ</a>
       <a href="join.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">入部案内</a>
       <a href="about.html" class="block py-2.5 px-3 rounded-lg font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">団体概要</a>
-      <a href="sponsors.html" class="block py-2.5 px-3 rounded-lg font-bold text-blue-600 bg-blue-50 transition">スポンサー</a>
+      <a href="sponsors.html" class="block py-2.5 px-3 rounded-lg font-bold text-blue-600 bg-blue-50 transition pointer-events-none">スポンサー</a>
       <a href="contact.html" class="block py-2.5 px-3 text-center rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow">お問い合わせ</a>
     </div>
   </header>
 
   <!-- ページ見出し -->
-  <section class="bg-slate-900 text-white py-16 px-4 text-center">
-    <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Sponsors</span>
-    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">スポンサー・ご支援</h1>
+  <section class="bg-slate-900 text-white py-16 px-4 text-center font-jp">
+    <span class="text-blue-400 font-bold text-xs tracking-widest uppercase font-en">Sponsors & Support</span>
+    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">ご支援・ご協賛のお願い</h1>
   </section>
 
-  <main class="max-w-5xl mx-auto px-4 py-16 space-y-16">
-    <!-- 協賛企業一覧 -->
-    <section>
-      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">ご協賛企業・団体様</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        <div class="h-28 border rounded-xl flex items-center justify-center font-bold text-gray-400 bg-slate-50">企業ロゴ A</div>
-        <div class="h-28 border rounded-xl flex items-center justify-center font-bold text-gray-400 bg-slate-50">企業ロゴ B</div>
-        <div class="h-28 border rounded-xl flex items-center justify-center font-bold text-gray-400 bg-slate-50">企業ロゴ C</div>
-        <div class="h-28 border rounded-xl flex items-center justify-center font-bold text-gray-400 bg-slate-50">企業ロゴ D</div>
+  <main class="max-w-5xl mx-auto px-4 py-16 space-y-20 font-jp flex-grow">
+
+    <!-- ============================================== -->
+    <!-- 1. なぜ資金が必要なのか（現状の課題） -->
+    <!-- ============================================== -->
+    <section class="space-y-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">皆様のご支援が必要です</h2>
+        <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-sm text-gray-700 leading-relaxed text-sm sm:text-base">
+        <p class="mb-6">
+          私たちは「NHK学生ロボコン」での全国優勝・世界大会出場を目標に、ゼロからの機体設計、特注のプリント基板製作、そして高度なAI・自動制御システムの開発に取り組んでいます。
+        </p>
+        <p class="mb-6">
+          しかし、高性能なロボットを開発し、大会という大舞台へ出場するためには、学生の自己負担や部費だけでは賄いきれない多額の資金が必要不可欠です。現在、主に以下の用途において資金が不足しております。
+        </p>
+
+        <!-- 資金の主な用途リスト -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+          <div class="bg-slate-50 border border-gray-100 rounded-xl p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">部品・材料費</h4>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1">
+                特殊なモーターや精密なセンサー（LiDAR等）、加工用のアルミ材、基板の発注費など、昨今の物価高騰により費用負担が増加しています。
+              </p>
+            </div>
+          </div>
+          <div class="bg-slate-50 border border-gray-100 rounded-xl p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900">遠征費・機体輸送費</h4>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1">
+                鹿児島から東京など本州の大会会場へ大型のロボットを安全に輸送するための運送費や、部員たちの遠征・宿泊費が大きなハードルとなっています。
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 支援のお願い -->
-    <section class="bg-blue-50 border border-blue-100 rounded-2xl p-8 text-center space-y-4">
-      <h2 class="text-2xl font-bold text-gray-900">スポンサー募集について</h2>
-      <p class="text-gray-600 text-sm max-w-2xl mx-auto">
-        機体製作費、加工材料、電子部品、大会遠征費などのご支援をいただける企業様・個人の皆様を募集しています。機体やユニフォームへのロゴ掲載、HPリンクなどのリターンをご用意しております。
-      </p>
-      <div class="pt-4">
-        <a href="contact.html" class="inline-block px-6 py-3 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition">協賛に関するお問い合わせ</a>
+    <!-- ============================================== -->
+    <!-- 2. 支援の窓口（法人様向け・個人様向け） -->
+    <!-- ============================================== -->
+    <section>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- 法人企業様向け -->
+        <div class="border-2 border-blue-600 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden bg-white shadow-md">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white font-bold text-xs px-4 py-1 rounded-bl-xl tracking-wider font-en">For Corporate</div>
+          
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">法人企業・団体様からの<br class="hidden sm:inline">ご協賛</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+              資金提供や物品（部品・ツール等の現物支給）によるスポンサーシップをお願いしております。ご協賛いただいた企業様には、感謝を込めて以下のリターンをご用意しております。
+            </p>
+            <ul class="space-y-2 mb-8 text-sm text-gray-700 font-medium">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                本サイトのスポンサー一覧への企業ロゴ・リンク掲載
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                大会出場機体へのロゴステッカー貼付
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                チームユニフォームへのロゴ印刷
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                公式SNSでのご紹介
+              </li>
+            </ul>
+          </div>
+          <a href="contact.html" class="block w-full text-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition shadow">
+            ご協賛に関するお問い合わせ
+          </a>
+        </div>
+
+        <!-- 個人の方むけ -->
+        <div class="border border-gray-200 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden bg-slate-50 shadow-sm hover:shadow-md transition">
+          <div class="absolute top-0 right-0 bg-gray-600 text-white font-bold text-xs px-4 py-1 rounded-bl-xl tracking-wider font-en">For Individuals</div>
+          
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">個人の方からの<br class="hidden sm:inline">ご寄付・ご支援</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+              サークルOB・OGの皆様、学生のご家族、活動を応援してくださる一般の方からのご寄付もありがたく受け付けております。<br>
+              いただいたご支援は、学生の技術力向上や部室環境の整備のために全額大切に使用させていただきます。
+            </p>
+            <ul class="space-y-2 mb-8 text-sm text-gray-700 font-medium">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                本サイトのサポーター一覧へのお名前掲載（※希望者のみ）
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                大会結果や活動の定期ご報告
+              </li>
+            </ul>
+          </div>
+          <a href="contact.html" class="block w-full text-center px-6 py-3.5 bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 font-bold rounded-xl transition shadow-sm">
+            個人のご支援に関するお問い合わせ
+          </a>
+        </div>
+
       </div>
     </section>
+
+    <!-- セクション間の区切り線 -->
+    <hr class="border-gray-200">
+
+    <!-- ============================================== -->
+    <!-- 3. ご支援いただいた皆様（ロゴ・お名前掲載欄） -->
+    <!-- ============================================== -->
+    <section class="space-y-16">
+      
+<!-- スポンサー企業様一覧 -->
+      <div>
+        <div class="text-center mb-8">
+          <span class="text-blue-600 font-bold text-xs tracking-widest uppercase font-en">Corporate Sponsors</span>
+          <h2 class="text-2xl font-extrabold text-gray-900 mt-1">ご協賛企業・団体様</h2>
+          <p class="text-sm text-gray-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+            現在、私たちの活動をご支援いただけるスポンサー様を募集しております。<br>
+            ご協賛いただいた企業・団体様のロゴはこちらに掲載させていただきます。
+          </p>
+        </div>
+        
+        <!-- 企業ロゴ グリッド（構成はそのまま、すべて募集中枠に変更） -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          
+          <!-- 募集枠 1 -->
+          <a href="contact.html" class="aspect-[3/2] border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-blue-50 hover:border-blue-300 transition group text-center cursor-pointer">
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 mb-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span class="text-xs sm:text-sm font-bold text-gray-500 group-hover:text-blue-600 transition">御社ロゴ掲載枠</span>
+            <span class="text-[10px] text-gray-400 mt-1 group-hover:text-blue-400 transition">（スポンサー募集中）</span>
+          </a>
+
+          <!-- 募集枠 2 -->
+          <a href="contact.html" class="aspect-[3/2] border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-blue-50 hover:border-blue-300 transition group text-center cursor-pointer">
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 mb-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span class="text-xs sm:text-sm font-bold text-gray-500 group-hover:text-blue-600 transition">御社ロゴ掲載枠</span>
+            <span class="text-[10px] text-gray-400 mt-1 group-hover:text-blue-400 transition">（スポンサー募集中）</span>
+          </a>
+
+          <!-- 募集枠 3 -->
+          <a href="contact.html" class="aspect-[3/2] border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-blue-50 hover:border-blue-300 transition group text-center cursor-pointer">
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 mb-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span class="text-xs sm:text-sm font-bold text-gray-500 group-hover:text-blue-600 transition">御社ロゴ掲載枠</span>
+            <span class="text-[10px] text-gray-400 mt-1 group-hover:text-blue-400 transition">（スポンサー募集中）</span>
+          </a>
+
+          <!-- 募集枠 4 -->
+          <a href="contact.html" class="aspect-[3/2] border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-blue-50 hover:border-blue-300 transition group text-center cursor-pointer">
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 mb-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span class="text-xs sm:text-sm font-bold text-gray-500 group-hover:text-blue-600 transition">御社ロゴ掲載枠</span>
+            <span class="text-[10px] text-gray-400 mt-1 group-hover:text-blue-400 transition">（スポンサー募集中）</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- 個人サポーター様一覧 -->
+      <div class="mt-20">
+        <div class="text-center mb-10">
+          <span class="text-gray-500 font-bold text-xs tracking-widest uppercase font-en">Individual Supporters</span>
+          <h2 class="text-2xl font-extrabold text-gray-900 mt-1">個人サポーター様</h2>
+          <p class="text-sm text-gray-500 mt-3 max-w-2xl mx-auto leading-relaxed">
+            活動にご賛同いただき、ご寄付・ご支援を賜りました皆様へ、心より御礼申し上げます。<br>
+            <span class="text-xs text-gray-400">（※掲載をご希望された方のみ順不同・敬称略にて掲載しております）</span>
+          </p>
+        </div>
+        
+        <!-- ネームプレート形式のリスト表示 -->
+        <div class="bg-gradient-to-br from-slate-50 to-gray-100 border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
+          <!-- 背景の装飾アクセント -->
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <!-- ▼ お名前を入れる場合は以下のコメントアウトを外して編集してください ▼ -->
+            <!-- 
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">メタシステム研究所</span>
+              </div>
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">山床　太一</span>
+              </div>
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">信濃国</span>
+              </div>
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">山本　悠介</span>
+              </div>
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">toi toi toi</span>
+              </div>
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">友生整骨院</span>
+              </div>-->
+
+              <!--
+              <div class="bg-white/80 backdrop-blur border border-gray-200 py-3 px-4 rounded-xl text-center shadow-sm hover:shadow-md transition">
+                <span class="font-bold text-gray-700 text-sm sm:text-base tracking-wide">"支援していただいた方の名前（敬称不要）"</span>
+              </div> 
+              -->
+
+              <!-- まだ掲載がない場合の表示 -->
+              <div class="py-12 text-center">
+                <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <p class="text-gray-400 text-sm font-medium">現在、掲載対象のサポーター様はおられません。</p>
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
   </main>
 
   <!-- フッター -->
-  <footer class="bg-[#242424] text-gray-200 py-12 px-6 font-sans text-center border-t border-gray-800">
+  <footer class="bg-[#242424] text-gray-200 py-12 px-6 font-sans text-center border-t border-gray-800 mt-auto">
     <div class="max-w-4xl mx-auto space-y-6">
+
+      <!-- 1. サークルロゴ & 団体名 -->
       <div class="flex items-center justify-center gap-3">
         <img src="images/logo_noname01.png" alt="SATSUMA TECH" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
         <div class="flex flex-col justify-center text-left">
@@ -106,11 +312,15 @@
           <span class="font-en text-[11px] font-bold text-gray-400 tracking-[0.2em] leading-tight mt-1 uppercase">Kagoshima Univ.</span>
         </div>
       </div>
+
+      <!-- 2. SNSボタングループ -->
       <div class="flex items-center justify-center gap-4 pt-1">
-        <a href="https://x.com/kadai_robo" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow" aria-label="X (旧Twitter)">
+        <a href="https://x.com/kadai_robo" target="_blank" rel="noopener noreferrer" 
+          class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow" aria-label="X (旧Twitter)">
           <svg class="w-5 h-5 fill-current stroke-current stroke-[35]" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
         </a>
-        <a href="https://www.instagram.com/kadai__robo/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow" aria-label="Instagram">
+        <a href="https://www.instagram.com/kadai__robo/" target="_blank" rel="noopener noreferrer" 
+          class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-black hover:opacity-80 transition shadow" aria-label="Instagram">
           <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441 1.44-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
       </div>
